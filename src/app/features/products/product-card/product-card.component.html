@@ -1,0 +1,24 @@
+<div>
+    <div class="flex justify-between">
+        <span class="font-semibold text-xl"><i>"{{product().name}}"</i></span>
+        <div class="flex">
+            <span class="font-bold text-sm pt-1">$</span>
+            <span class="font-bold text-2xl">{{product().price}}</span>
+        </div>
+    </div>
+    <div class="flex justify-center content-center">
+        <img src="{{product().coverUrl}}" alt="image title" height="190" width="270">
+    </div>
+    <div>
+        <p>{{product().description}}</p>
+    </div>
+    <div class="flex justify-between">
+        <div class="px-1 bg-gray-500 rounded-sm flex justify-center items-center">
+            <span class=" text-white ">{{product().category}}</span>
+        </div>
+       
+        <div>
+            <button type="button" (click)="watchDetailsDialog()" class="bg-blue-700 text-white font-semibold p-2 rounded-sm">Detalles</button>
+        </div>
+    </div>
+</div>

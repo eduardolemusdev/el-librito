@@ -1,0 +1,30 @@
+<div class="bg-white p-6 rounded-sm">
+    <div class="flex justify-between">
+        <span class="font-semibold text-xl"><i>"{{data.name}}"</i></span>
+        <div class="flex">
+            <span class="font-bold text-sm pt-1">$</span>
+            <span class="font-bold text-2xl">{{data.price}}</span>
+        </div>
+    </div>
+    <div class="flex justify-center content-center">
+        <img src="{{data.coverUrl}}" alt="image title" height="120" width="170">
+    </div>
+    <div>
+        <p>{{data.description}}</p>
+    </div>
+    <div class="flex ">
+        <button  (click)="decrease()" class="text-xl px-2 border-2 border-black font-semibold">-</button>
+        <input matInput class="w-12 border-y-2 pl-2 border-black text-center"  type="number" [(ngModel)]="booksQuantity" [min]="1" [readonly]="true" />
+        <button  (click)="increase()" class="text-xl px-2 border-2 border-black font-semibold">+</button>
+      </div>
+    <app-product-stars [starsActive]="data.starsNumber"></app-product-stars>
+    <div class="flex justify-between">
+        <div><button class=" border-2 border-black px-2 py-1">CANCELAR</button></div>
+            <button  (click)="addProductsToCart()"  class="bg-black text-white px-2 py-1 flex justify-center space-x-2 items-center content-center"> <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                    height="20" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                    <path class="text-white"
+                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                </svg><span>AGREGAR</span></button>
+        
+    </div>
+</div>

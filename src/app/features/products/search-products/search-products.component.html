@@ -1,0 +1,18 @@
+<div>
+    <form [formGroup]="searchBookForm">
+        <div class="flex space-x-2 justify-between mx-10">
+            <mat-form-field>
+                <mat-label>Categoría</mat-label>
+                <mat-select [formControl]="searchBookForm.controls.category" (selectionChange)="onCategoryChange()">
+                    @for (category of bookCategories; track category) {
+                    <mat-option [value]="category">{{category}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field  class="example-full-width">
+                <mat-label>Titulo</mat-label>
+                <input [formControl]="searchBookForm.controls.title" (input)="onTitleSearched()" matInput  matInput placeholder="Got">
+            </mat-form-field>
+        </div>
+    </form>
+</div>

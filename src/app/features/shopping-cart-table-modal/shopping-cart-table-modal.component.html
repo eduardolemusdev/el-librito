@@ -1,0 +1,49 @@
+<div class="bg-white p-4">
+    <span class="text-2xl ">Carrito de Compra</span>
+    <table mat-table [dataSource]="datasource" class="border-2 border-black">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="Producto">
+            <th mat-header-cell *matHeaderCellDef> Producto </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Precio">
+            <th mat-header-cell *matHeaderCellDef> Precio </th>
+            <td mat-cell *matCellDef="let element"> ${{element.price}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Cantidad">
+            <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Subtotal">
+            <th mat-header-cell *matHeaderCellDef> Subtotal </th>
+            <td mat-cell *matCellDef="let element"> {{element.subtotal}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div>
+        <div class="flex justify-end">
+            <span class="text-xl font-semibold right-0">Total a pagar: {{total}}</span>
+        </div>
+        <div class="flex justify-between font-medium pt-4">
+            <button type="button" class="px-2 py-1 border-2 border-gray-700">CERRAR</button>
+            <button type="button" class="px-2 py-1 text-white bg-gray-700 flex space-x-2 items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-2-back" viewBox="0 0 16 16">
+                <path d="M11 5.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5z"/>
+                <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm13 2v5H1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1m-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1"/>
+              </svg>
+            <span>PAGAR</span></button>
+        </div>
+    </div>
+</div>
