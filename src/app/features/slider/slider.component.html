@@ -1,1 +1,27 @@
-<p>slider works!</p>
+<div>
+  <div class="h-80 relative">
+    <div class="h-full flex justify-center content-center">
+      <img
+        src="{{ images[currentImageIndex()] }}"
+        class="object-contain h-full"
+        alt="slider"
+      />
+    </div>
+    <div class="text-5xl font-bold flex justify-between absolute top-40 w-full">
+      <button
+        type="button"
+        class="bg-gray-300 rounded-full px-4"
+        (click)="handlePrevImage()"
+      >
+        {{ "<" }}
+      </button>
+      <button
+        type="button"
+        class="bg-gray-300 rounded-full px-4"
+        (click)="handleNextImage()"
+      >
+        {{ ">" }}
+      </button>
+    </div>
+  </div>
+</div>
