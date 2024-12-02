@@ -1,7 +1,7 @@
 import { DIALOG_DATA, Dialog } from '@angular/cdk/dialog';
 import { Component, inject } from '@angular/core';
 import { ProductStore } from '../../models/product';
-import { ProductStarsComponent } from "../product-stars/product-stars.component";
+import { ProductStarsComponent } from '../product-stars/product-stars.component';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { ProductFeedbackComponent } from '../product-feedback/product-feedback.component';
 import { FormsModule } from '@angular/forms';
@@ -10,9 +10,14 @@ import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-product-details-modal',
-  imports: [ProductStarsComponent, MatButtonModule, MatInputModule, FormsModule],
+  imports: [
+    ProductStarsComponent,
+    MatButtonModule,
+    MatInputModule,
+    FormsModule,
+  ],
   templateUrl: './product-details-modal.component.html',
-  styleUrl: './product-details-modal.component.css'
+  styleUrl: './product-details-modal.component.css',
 })
 export class ProductDetailsModalComponent {
   data = inject<ProductStore>(DIALOG_DATA);
@@ -26,9 +31,11 @@ export class ProductDetailsModalComponent {
     this.data.quantity = this.booksQuantity;
     this.shoppingCartService.addProduct(this.data);
     this.dialogService.closeAll();
+
     this.dialogService.open(ProductFeedbackComponent, {
       maxWidth: '60vw',
       maxHeight: '60vh',
+      data: 'Producto agregado al carrito exitosamente!',
     });
   }
 
@@ -43,5 +50,4 @@ export class ProductDetailsModalComponent {
       this.booksQuantity--;
     }
   }
-
 }
